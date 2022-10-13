@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  width: 75%;
+  margin: 3rem auto;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+}
+
+input[type=text] {
+  width: 100%;
+  height: 5rem;
+  font-size: 3rem;
+  padding-left: 1rem;
+}
+
+.calculator-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.grid-col-span-2 {
+  grid-column: span 2;
+}
+
+button {
+  font-size: 3rem;
+  padding: 0.5rem;
+}
