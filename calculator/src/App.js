@@ -1,14 +1,6 @@
 import './index.css';
 import { useReducer } from 'react';
 
-parseInput('2+5-7');
-
-function parseInput(str) {
-  let arr = str.split('');
-  console.log(arr);
-  
-}
-
 function reducer(state, action) {
   if (action.type === 'add_to_input') {
     return {
@@ -24,6 +16,14 @@ function reducer(state, action) {
     return {
       input: eval(state.input)
     }
+  };
+  if (action.type === 'delete') {
+      if (state.input.length>0) {
+        return { input: state.input.slice(0, state.input.length-1) }
+      } else {
+        return { input: '' }
+      }
+    
   }
   throw Error('Unknown action.');
 }
@@ -42,6 +42,10 @@ function App() {
       } else if (value === '=') {
         dispatch({ 
           type: 'calculate'
+        });
+      } else if (value === 'del') {
+        dispatch({ 
+          type: 'delete'
         });
       } else {
         dispatch({ 
