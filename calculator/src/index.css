@@ -1,44 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'League Spartan', sans-serif;
+}
+
+:root {
+  --border-rad: 10px;
+  --key-bg: rgb(234, 227, 219);
+  --key-shadow: hsl(28, 16%, 65%);
+  --key-alt-bg: hsl(225, 21%, 49%);
+  --key-alt-shadow: hsl(224, 28%, 35%);
+  --key-equals-bg: hsl(6, 63%, 50%);
+  --key-equals-shadow: hsl(6, 70%, 34%);
 }
 
 body {
-  background: rgb(23, 23, 53);
+  background: rgb(59, 70, 100);
 }
 
 main {
-  width: 30%;
+  width: 40%;
   margin: 3rem auto;
   display: flex;
   flex-direction: column;
-  row-gap: 2rem;
+  row-gap: 1rem;
 }
 
 .output {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
   width: 100%;
   height: 5rem;
-  font-size: 1rem;
-  padding-left: 1rem;
-  background: white;
+  padding: 0.5rem 1rem;
+  background: rgb(24, 31, 50);
+  color: rgb(255, 255, 255);
+  border-radius: var(--border-rad);
 }
 
 .result {
   font-size: 3rem;
 }
+
 .calculator-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
+  background-color: rgb(37, 45, 68);
+  padding: 2rem;
+  border-radius: var(--border-rad);
+}
+
+.calculator-grid button {
+  font-size: 32px;
+  color: hsl(221, 14%, 31%);
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+  background-color: var(--key-bg);
+  box-shadow: 0px 5px 0px var(--key-shadow);
+  border-radius: var(--border-rad);
+  border-style: none;
+}
+
+.calculator-grid button.alt-key {
+  color: white;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  background-color: var(--key-alt-bg);
+  box-shadow: 0px 5px 0px var(--key-alt-shadow);
+}
+
+.calculator-grid button.equals-key {
+  color: white;
+  background-color: var(--key-equals-bg);
+  box-shadow: 0px 5px 0px var(--key-equals-shadow);
 }
 
 .grid-col-span-2 {
   grid-column: span 2;
 }
 
-button {
-  font-size: 3rem;
-  padding: 0.5rem;
+.heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: white;
+  
 }
-

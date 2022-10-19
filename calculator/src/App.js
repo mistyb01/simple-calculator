@@ -1,5 +1,5 @@
 import './index.css';
-import { useState, useReducer } from 'react';
+import { useReducer } from 'react';
 
 // addbits() function by adiga 
 // https://stackoverflow.com/questions/2276021/evaluating-a-string-as-a-mathematical-expression-in-javascript
@@ -19,13 +19,13 @@ function reducer(state, action) {
       input: state.input + action.nextValue,
       result: addbits(state.input + action.nextValue)
     };
-  }
+  };
   if (action.type === 'clear_input') {
     return {
       input: '',
       result: ''
-    }
-  }
+    };
+  };
   throw Error('Unknown action.');
 }
 
@@ -35,9 +35,8 @@ function App() {
   const [state, dispatch] = useReducer(reducer, {input: '', result: ''});
 
   const CalculatorButton = ({value}) => {
-
     const handleClick = (e) => {
-      if (value == 'reset') {
+      if (value === 'reset') {
         dispatch({ 
           type: 'clear_input'
         });
@@ -48,11 +47,20 @@ function App() {
         });
       }
     };
-    return <button onClick = {handleClick}>{value}</button>
+    return (value === 'reset' || value === '=' || value === 'del') 
+    ? (value === 'reset')
+      ? <button className='grid-col-span-2 alt-key' onClick = {handleClick}>{value}</button> 
+      : (value === 'del') ? <button className='alt-key' onClick = {handleClick}>{value}</button> 
+      : <button className='grid-col-span-2 equals-key' onClick = {handleClick}>{value}</button>
+    : <button onClick = {handleClick}>{value}</button>
   }
 
   return (
     <main>
+      <div className="heading">
+        <h1>calc</h1>
+        <div className="theme">theme</div>
+      </div>
       <div className="output">
         <div className="input">{state.input}</div>
         <div className="result">{state.result}</div>
@@ -76,7 +84,6 @@ function App() {
         <CalculatorButton value={'*'}></CalculatorButton>
         <CalculatorButton value={'reset'}></CalculatorButton>
         <CalculatorButton value={'='}></CalculatorButton>
-
       </div>
     </main>
   );
