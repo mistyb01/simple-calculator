@@ -38,17 +38,15 @@ main {
 .output {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  justify-content: center;
+  align-items: flex-end;
+  padding-right: 1rem;
   width: 100%;
   height: 5rem;
-  padding: 0.5rem 1rem;
   background: var(--screen-bg);
+  font-size: 3rem;
   color: white;
   border-radius: var(--border-rad);
-}
-
-.result {
-  font-size: 3rem;
 }
 
 .calculator-grid {

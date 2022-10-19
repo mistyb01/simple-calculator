@@ -1,44 +1,47 @@
 import './index.css';
 import { useReducer } from 'react';
 
-// addbits() function by adiga 
-// https://stackoverflow.com/questions/2276021/evaluating-a-string-as-a-mathematical-expression-in-javascript
-function addbits(s) {
-  var total = 0,
-      s = s.match(/[+\-]*(\.\d+|\d+(\.\d+)?)/g) || [];
-      
-  while (s.length) {
-    total += parseFloat(s.shift());
-  }
-  return total;
+parseInput('2+5-7');
+
+function parseInput(str) {
+  let arr = str.split('');
+  console.log(arr);
+  
 }
 
 function reducer(state, action) {
   if (action.type === 'add_to_input') {
     return {
-      input: state.input + action.nextValue,
-      result: addbits(state.input + action.nextValue)
+      input: state.input + action.nextValue
     };
   };
   if (action.type === 'clear_input') {
     return {
-      input: '',
-      result: ''
+      input: ''
     };
   };
+  if (action.type === 'calculate') {
+    return {
+      input: eval(state.input)
+    }
+  }
   throw Error('Unknown action.');
 }
 
 function App() {
   // state = the initial state (input = 0)
   // dispatch = the function that lets you change the value in response to an action (reducer)
-  const [state, dispatch] = useReducer(reducer, {input: '', result: ''});
+  const [state, dispatch] = useReducer(reducer, {input: ''});
 
   const CalculatorButton = ({value}) => {
     const handleClick = (e) => {
       if (value === 'reset') {
         dispatch({ 
           type: 'clear_input'
+        });
+      } else if (value === '=') {
+        dispatch({ 
+          type: 'calculate'
         });
       } else {
         dispatch({ 
@@ -62,8 +65,7 @@ function App() {
         <div className="theme">theme</div>
       </div>
       <div className="output">
-        <div className="input">{state.input}</div>
-        <div className="result">{state.result}</div>
+        {state.input}
       </div>
       <div className="calculator-grid">
         <CalculatorButton value={7}></CalculatorButton>
