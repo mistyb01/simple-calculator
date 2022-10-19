@@ -2,28 +2,23 @@ import './index.css';
 import { useReducer } from 'react';
 
 function reducer(state, action) {
-  if (action.type === 'add_to_input') {
-    return {
-      input: state.input + action.nextValue
-    };
-  };
-  if (action.type === 'clear_input') {
-    return {
-      input: ''
-    };
-  };
-  if (action.type === 'calculate') {
-    return {
-      input: eval(state.input)
-    }
-  };
-  if (action.type === 'delete') {
-      if (state.input.length>0) {
-        return { input: state.input.slice(0, state.input.length-1) }
-      } else {
-        return { input: '' }
+  switch (action.type) {
+    case 'add_to_input':
+      return {
+        input: state.input + action.nextValue
+      };
+    case 'clear_input':
+      return {
+        input: ''
+      };
+    case 'delete':
+      return (state.input.length>0) 
+        ? { input: state.input.slice(0, state.input.length-1) }
+        : { input: '' }
+    case 'calculate':
+      return {
+        input: eval(state.input)
       }
-    
   }
   throw Error('Unknown action.');
 }
@@ -35,6 +30,29 @@ function App() {
 
   const CalculatorButton = ({value}) => {
     const handleClick = (e) => {
+      // switch(value) {
+      //   case 'reset':
+      //     dispatch({ 
+      //       type: 'clear_input'
+      //     });
+      //     break;
+      //   case '=':
+      //     dispatch({ 
+      //       type: 'calculate'
+      //     });
+      //     break;
+      //   case 'del':
+      //     dispatch({ 
+      //       type: 'delete'
+      //     });
+      //     break;
+      //   default:
+      //     dispatch({ 
+      //       type: 'add_to_input',
+      //       nextValue: e.target.innerHTML
+      //     });
+      //     break;
+      // }
       if (value === 'reset') {
         dispatch({ 
           type: 'clear_input'
