@@ -1,6 +1,8 @@
 import './index.css';
 import { useState, useReducer } from 'react';
 
+// addbits() function by adiga 
+// https://stackoverflow.com/questions/2276021/evaluating-a-string-as-a-mathematical-expression-in-javascript
 function addbits(s) {
   var total = 0,
       s = s.match(/[+\-]*(\.\d+|\d+(\.\d+)?)/g) || [];
@@ -12,13 +14,17 @@ function addbits(s) {
 }
 
 function reducer(state, action) {
-  
   if (action.type === 'add_to_input') {
-
     return {
       input: state.input + action.nextValue,
       result: addbits(state.input + action.nextValue)
     };
+  }
+  if (action.type === 'clear_input') {
+    return {
+      input: '',
+      result: ''
+    }
   }
   throw Error('Unknown action.');
 }
@@ -29,12 +35,18 @@ function App() {
   const [state, dispatch] = useReducer(reducer, {input: '', result: ''});
 
   const CalculatorButton = ({value}) => {
+
     const handleClick = (e) => {
-      console.log(e);
-      dispatch({ 
-        type: 'add_to_input',
-        nextValue: e.target.innerHTML
-      });
+      if (value == 'reset') {
+        dispatch({ 
+          type: 'clear_input'
+        });
+      } else {
+        dispatch({ 
+          type: 'add_to_input',
+          nextValue: e.target.innerHTML
+        });
+      }
     };
     return <button onClick = {handleClick}>{value}</button>
   }
