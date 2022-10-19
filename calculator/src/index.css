@@ -13,12 +13,17 @@
   --keypad-bg: hsl(223, 31%, 20%);
   --screen-bg: hsl(224, 36%, 15%);
 
-  --key-bg: rgb(234, 227, 219);
+  --key-bg: hsl(32, 26%, 89%);
   --key-shadow: hsl(28, 16%, 65%);
+  --key-bg-active: white;
+
   --key-alt-bg: hsl(225, 21%, 49%);
   --key-alt-shadow: hsl(224, 28%, 35%);
+  --key-alt-active: hsl(224, 51%, 76%);
+
   --key-equals-bg: hsl(6, 63%, 50%);
   --key-equals-shadow: hsl(6, 70%, 34%);
+  --key-equals-active: hsl(6, 93%, 67%);
 
   --text-key: hsl(221, 14%, 31%);
 }
@@ -68,20 +73,29 @@ main {
   border-radius: var(--border-rad);
   border-style: none;
 }
+  .calculator-grid button:active {
+    background-color: var(--key-bg-active);
+  }
 
-.calculator-grid button.alt-key {
-  color: white;
-  font-size: 1.5rem;
-  text-transform: uppercase;
-  background-color: var(--key-alt-bg);
-  box-shadow: 0px 5px 0px var(--key-alt-shadow);
-}
+  .calculator-grid button.alt-key {
+    color: white;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    background-color: var(--key-alt-bg);
+    box-shadow: 0px 5px 0px var(--key-alt-shadow);
+  }
+    .calculator-grid button.alt-key:active {
+      background-color: var(--key-alt-active);
+    }
 
-.calculator-grid button.equals-key {
-  color: white;
-  background-color: var(--key-equals-bg);
-  box-shadow: 0px 5px 0px var(--key-equals-shadow);
-}
+  .calculator-grid button.equals-key {
+    color: white;
+    background-color: var(--key-equals-bg);
+    box-shadow: 0px 5px 0px var(--key-equals-shadow);
+  }
+    .calculator-grid button.equals-key:active {
+      background-color: var(--key-equals-active);
+    }
 
 .grid-col-span-2 {
   grid-column: span 2;
