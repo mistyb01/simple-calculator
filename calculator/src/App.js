@@ -30,46 +30,28 @@ function App() {
 
   const CalculatorButton = ({value}) => {
     const handleClick = (e) => {
-      // switch(value) {
-      //   case 'reset':
-      //     dispatch({ 
-      //       type: 'clear_input'
-      //     });
-      //     break;
-      //   case '=':
-      //     dispatch({ 
-      //       type: 'calculate'
-      //     });
-      //     break;
-      //   case 'del':
-      //     dispatch({ 
-      //       type: 'delete'
-      //     });
-      //     break;
-      //   default:
-      //     dispatch({ 
-      //       type: 'add_to_input',
-      //       nextValue: e.target.innerHTML
-      //     });
-      //     break;
-      // }
-      if (value === 'reset') {
-        dispatch({ 
-          type: 'clear_input'
-        });
-      } else if (value === '=') {
-        dispatch({ 
-          type: 'calculate'
-        });
-      } else if (value === 'del') {
-        dispatch({ 
-          type: 'delete'
-        });
-      } else {
-        dispatch({ 
-          type: 'add_to_input',
-          nextValue: e.target.innerHTML
-        });
+      switch(value) {
+        case 'reset':
+          dispatch({ 
+            type: 'clear_input'
+          });
+          break;
+        case '=':
+          dispatch({ 
+            type: 'calculate'
+          });
+          break;
+        case 'del':
+          dispatch({ 
+            type: 'delete'
+          });
+          break;
+        default:
+          dispatch({ 
+            type: 'add_to_input',
+            nextValue: e.target.innerHTML
+          });
+          break;
       }
     };
     return (value === 'reset' || value === '=' || value === 'del') 
@@ -84,7 +66,19 @@ function App() {
     <main>
       <div className="heading">
         <h1>calc</h1>
-        <div className="theme">theme</div>
+        <div className="theme">
+          theme
+          <div class="toggle_radio">
+            <input type="radio" checked class="toggle_option" id="first_toggle" name="toggle_option"/>
+            <input type="radio" class="toggle_option" id="second_toggle" name="toggle_option"/>
+            <input type="radio" class="toggle_option" id="third_toggle" name="toggle_option"/>
+            <label for="first_toggle"></label>
+            <label for="second_toggle"></label>
+            <label for="third_toggle"></label>
+            <div class="toggle_option_slider">
+            </div>
+          </div>
+        </div>
       </div>
       <div className="output">
         {state.input}
