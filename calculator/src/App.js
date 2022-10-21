@@ -27,8 +27,6 @@ function reducer(state, action) {
 
 
 function App() {
-  // state = the initial state (input = 0)
-  // dispatch = the function that lets you change the value in response to an action (reducer)
   const [state, dispatch] = useReducer(reducer, {input: ''});
   const [theme, setTheme] = useState(1);
   let root = document.documentElement;
@@ -103,6 +101,8 @@ function App() {
         root.style.setProperty('--key-alt-bg', 'hsl(268, 47%, 21%)');
         root.style.setProperty('--key-alt-shadow', 'hsl(290, 70%, 36%)');
         root.style.setProperty('--key-alt-active', 'hsl(280, 56%, 44%)');
+
+        root.style.setProperty('--toggle-color', 'hsl(176, 100%, 44%)');
         break;
     }
   }, [theme]);
@@ -142,9 +142,9 @@ function App() {
   }
 
   function changeTheme(e) {
-    if (e.target.id === 'first_toggle') {
+    if (e.target.id === 'theme1-toggle') {
       setTheme(1);
-    } else if (e.target.id === 'second_toggle') {
+    } else if (e.target.id === 'theme2-toggle') {
       setTheme(2);
     } else {
       setTheme(3);
@@ -176,25 +176,19 @@ function App() {
               <span>3</span>
             </div>
             <fieldset>
-              <input type="radio" class="toggle_option" id="first_toggle" name="toggle_option" onClick={changeTheme}/>
-              <input type="radio" class="toggle_option" id="second_toggle" name="toggle_option" onClick={changeTheme}/>
-              <input type="radio" class="toggle_option" id="third_toggle" name="toggle_option" onClick={changeTheme}/>
-              <label for="first_toggle"></label>
-              <label for="second_toggle"></label>
-              <label for="third_toggle"></label>
-              <div class="toggle_option_slider">
+              <input type="radio" checked = {theme === 1} class="toggle-option" id="theme1-toggle" name="toggle-option" onClick={changeTheme}/>
+              <input type="radio" class="toggle-option" id="theme2-toggle" name="toggle-option" onClick={changeTheme}/>
+              <input type="radio" class="toggle-option" id="theme3-toggle" name="toggle-option" onClick={changeTheme}/>
+              <label for="theme1-toggle"></label>
+              <label for="theme2-toggle"></label>
+              <label for="theme3-toggle"></label>
+              <div class="toggle-dot">
               </div>
             </fieldset>
           </div>
         </div>
       </div>
       <div className="output">
-        {/* idea for commas:
-        use regex to find matches for numbers
-        (any num characters that are between operator signs)
-        then apply Number(x).toLocaleString() on those matches,
-        and replace the numbers with the comma'd versions
-          */}
         {addCommas(state.input)}
       </div>
       <div className="calculator-grid">

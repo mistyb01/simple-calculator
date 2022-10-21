@@ -39,11 +39,11 @@ body {
 }
 
 main {
-  width: 40%;
-  margin: 3rem auto;
+  width: 90%;
+  margin: 1.5rem auto;
   display: flex;
   flex-direction: column;
-  row-gap: 1rem;
+  row-gap: 1.5rem;
 }
 
 .output {
@@ -113,7 +113,7 @@ main {
   justify-content: space-between;
   align-items: flex-end;
   color: var(--body-text-color);
-  
+  margin-bottom: 1rem;
 }
 
 /* theme slider */
@@ -163,29 +163,45 @@ fieldset label{
   z-index: 1;
   text-align: center;
 }
-.toggle_option_slider{
+.toggle-dot{
   width: 15px;
   height: 15px;
   position: absolute;
   top: 0.3rem;
   border-radius: 50px;
-  transition: all .4s ease;
+  transition: left .4s ease;
 }
 
-#first_toggle:checked ~ .toggle_option_slider{
+#theme1-toggle:checked ~ .toggle-dot{
   background: var(--toggle-color);
   left: 0.25rem;
 }
-#second_toggle:checked ~ .toggle_option_slider{
+#theme2-toggle:checked ~ .toggle-dot{
   background: var(--toggle-color);
   left: 1.6rem;
 }
-#third_toggle:checked ~ .toggle_option_slider{
+#theme3-toggle:checked ~ .toggle-dot{
   background: var(--toggle-color);
   left: 3rem;
 }
-#first_toggle:checked ~ .toggle_option_slider:hover,
-#second_toggle:checked ~ .toggle_option_slider:hover,
-#third_toggle:checked ~ .toggle_option_slider:hover{
+#theme1-toggle:checked ~ .toggle-dot:hover,
+#theme2-toggle:checked ~ .toggle-dot:hover,
+#theme3-toggle:checked ~ .toggle-dot:hover{
   background: var(--key-equals-active);
+}
+
+/* tablets */
+@media (min-width: 768px) and (max-width: 1023px) {
+  main {
+    width: 75%;
+    margin: 3rem auto;
+  }
+}
+
+/* desktop */
+@media (min-width: 1024px) {
+  main {
+    width: 40%;
+    margin: 3rem auto;
+  }
 }
