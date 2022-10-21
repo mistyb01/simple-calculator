@@ -9,6 +9,9 @@
 
 :root {
   --border-rad: 10px;
+  --body-text-color: white;
+  --alt-text-color: white;
+  --equals-text-color: white;
   --main-bg: hsl(222, 26%, 31%);
   --keypad-bg: hsl(223, 31%, 20%);
   --screen-bg: hsl(224, 36%, 15%);
@@ -26,6 +29,8 @@
   --key-equals-active: hsl(6, 93%, 67%);
 
   --text-key: hsl(221, 14%, 31%);
+  --toggle-color: hsl(6, 63%, 50%);
+  --toggle-bg: hsl(223, 31%, 20%);
 }
 
 body {
@@ -50,7 +55,7 @@ main {
   height: 5rem;
   background: var(--screen-bg);
   font-size: 3rem;
-  color: white;
+  color: var(--body-text-color);
   border-radius: var(--border-rad);
 }
 
@@ -78,7 +83,7 @@ main {
   }
 
   .calculator-grid button.alt-key {
-    color: white;
+    color: var(--alt-text-color);
     font-size: 1.5rem;
     text-transform: uppercase;
     background-color: var(--key-alt-bg);
@@ -89,7 +94,7 @@ main {
     }
 
   .calculator-grid button.equals-key {
-    color: white;
+    color: var(--equals-text-color);
     background-color: var(--key-equals-bg);
     box-shadow: 0px 5px 0px var(--key-equals-shadow);
   }
@@ -106,7 +111,7 @@ main {
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
-  color: white;
+  color: var(--body-text-color);
   
 }
 
@@ -148,7 +153,6 @@ fieldset input[type=radio]{
 }
 
 fieldset label{
-  /* background-color: navy;  */
   display: inline-block;
   width: 15px;
   height: 15px;
@@ -168,14 +172,14 @@ fieldset label{
 }
 
 #first_toggle:checked ~ .toggle_option_slider{
-  background: var(--key-equals-bg);
+  background: var(--toggle-color);
   left: 0.25rem;
 }
 #second_toggle:checked ~ .toggle_option_slider{
-  background: rgba(255,255,255);
+  background: var(--toggle-color);
   left: 1.6rem;
 }
 #third_toggle:checked ~ .toggle_option_slider{
-  background: rgba(255,255,255);
+  background: var(--toggle-color);
   left: 3rem;
 }
