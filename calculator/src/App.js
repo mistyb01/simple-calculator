@@ -66,17 +66,24 @@ function App() {
     <main>
       <div className="heading">
         <h1>calc</h1>
-        <div className="theme">
-          theme
-          <div class="toggle_radio">
-            <input type="radio" checked class="toggle_option" id="first_toggle" name="toggle_option"/>
-            <input type="radio" class="toggle_option" id="second_toggle" name="toggle_option"/>
-            <input type="radio" class="toggle_option" id="third_toggle" name="toggle_option"/>
-            <label for="first_toggle"></label>
-            <label for="second_toggle"></label>
-            <label for="third_toggle"></label>
-            <div class="toggle_option_slider">
+        <div className="theme-wrapper">
+          <span id="theme-label">THEME</span>
+          <div className="toggle-with-numbers">
+            <div id="theme-numbers">
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
             </div>
+            <fieldset>
+              <input type="radio" class="toggle_option" id="first_toggle" name="toggle_option"/>
+              <input type="radio" class="toggle_option" id="second_toggle" name="toggle_option"/>
+              <input type="radio" class="toggle_option" id="third_toggle" name="toggle_option"/>
+              <label for="first_toggle"></label>
+              <label for="second_toggle"></label>
+              <label for="third_toggle"></label>
+              <div class="toggle_option_slider">
+              </div>
+            </fieldset>
           </div>
         </div>
       </div>

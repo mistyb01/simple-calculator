@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@500&700&display=swap');
 
 * {
   margin: 0;
@@ -105,55 +105,77 @@ main {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: flex-end;
   color: white;
   
 }
 
 /* theme slider */
-.toggle_radio{
+.theme-wrapper {
+  display: flex;
+  align-items: flex-end;
+  gap: 2rem;
+}
+.toggle-with-numbers {
+  display: flex;
+  flex-direction: column;
+}
+
+#theme-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.1ch;
+  margin-bottom: 0.3rem;
+}
+#theme-numbers {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+fieldset{
+  border: none;
   position: relative;
   background: var(--keypad-bg);
-  margin: 4px auto;
+  margin-top: 0.25rem;
   overflow: hidden;
   border-radius: 50px;
   position: relative;
-  height: 26px;
+  height: 1.5rem;
   width: fit-content;
 }
 
-.toggle_radio input[type=radio]{
+fieldset input[type=radio]{
   display: none;
 }
 
-.toggle_radio label{
-   /* background-color: navy;  */
+fieldset label{
+  /* background-color: navy;  */
   display: inline-block;
-  width: 20px;
-  height: 20px;
-  margin: 3px 3px;
+  width: 15px;
+  height: 15px;
+  margin: 0.25rem;
   border-radius: 50px;
   cursor: pointer;
   z-index: 1;
   text-align: center;
 }
 .toggle_option_slider{
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   position: absolute;
-  top: 3px;
+  top: 0.3rem;
   border-radius: 50px;
   transition: all .4s ease;
 }
 
 #first_toggle:checked ~ .toggle_option_slider{
   background: var(--key-equals-bg);
-  left: 5%;
+  left: 0.25rem;
 }
 #second_toggle:checked ~ .toggle_option_slider{
   background: rgba(255,255,255);
-  left: 37%;
+  left: 1.6rem;
 }
 #third_toggle:checked ~ .toggle_option_slider{
   background: rgba(255,255,255);
-  left: 70%;
+  left: 3rem;
 }
