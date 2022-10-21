@@ -1,7 +1,9 @@
 import './index.css';
 import { useReducer, useState, useEffect } from 'react';
 
+ 
 function reducer(state, action) {
+  const numFor = Intl.NumberFormat('en-us');
   switch (action.type) {
     case 'add_to_input':
       return {
@@ -17,7 +19,7 @@ function reducer(state, action) {
         : { input: '' }
     case 'calculate':
       return {
-        input: eval(state.input)
+        input: numFor.format(eval(state.input))
       }
   }
   throw Error('Unknown action.');
@@ -55,7 +57,6 @@ function App() {
         root.style.setProperty('--key-alt-active', 'hsl(224, 51%, 76%)');
 
         root.style.setProperty('--toggle-color', 'hsl(6, 63%, 50%)');
-        root.style.setProperty('--toggle-active', 'hsl(6, 93%, 67%)');
         break;
 
       case 2:
@@ -80,7 +81,6 @@ function App() {
         root.style.setProperty('--key-alt-active', 'hsl(185, 56%, 41%)');
 
         root.style.setProperty('--toggle-color', 'hsl(25, 98%, 40%)');
-        root.style.setProperty('--toggle-active', 'hsl(25, 100%, 61%)');
 
         break;
       case 3:
@@ -103,8 +103,6 @@ function App() {
         root.style.setProperty('--key-alt-bg', 'hsl(268, 47%, 21%)');
         root.style.setProperty('--key-alt-shadow', 'hsl(290, 70%, 36%)');
         root.style.setProperty('--key-alt-active', 'hsl(280, 56%, 44%)');
-
-        root.style.setProperty('--toggle-color', 'hsl(176, 100%, 44%)');
         break;
     }
   }, [theme]);
@@ -152,6 +150,19 @@ function App() {
       setTheme(3);
     }
   }
+
+  function addCommas(str) {
+    let nums = str.match(/[0-9]+/g);
+    let commaNums = [];
+
+    let newStr = str;
+    for (let i in nums) {
+      commaNums[i] = Number(nums[i]).toLocaleString();
+      newStr = newStr.replace(nums[i], commaNums[i]);
+    }
+    return newStr;
+  }
+
   return (
     <main>
       <div className="heading">
@@ -178,7 +189,13 @@ function App() {
         </div>
       </div>
       <div className="output">
-        {state.input}
+        {/* idea for commas:
+        use regex to find matches for numbers
+        (any num characters that are between operator signs)
+        then apply Number(x).toLocaleString() on those matches,
+        and replace the numbers with the comma'd versions
+          */}
+        {addCommas(state.input)}
       </div>
       <div className="calculator-grid">
         <CalculatorButton value={7}></CalculatorButton>
