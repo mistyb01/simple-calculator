@@ -45,19 +45,19 @@ function App() {
         root.style.setProperty('--key-shadow', 'hsl(28, 16%, 65%)');
         root.style.setProperty('--key-bg-active', 'white');
 
+        root.style.setProperty('--key-equals-bg', 'hsl(6, 63%, 50%)');
+        root.style.setProperty('--key-equals-shadow', 'hsl(6, 70%, 34%)');
+        root.style.setProperty('--key-equals-active', 'hsl(6, 93%, 67%)');
+        root.style.setProperty('--equals-text-color', 'white')
+
         root.style.setProperty('--key-alt-bg', 'hsl(225, 21%, 49%)');
         root.style.setProperty('--key-alt-shadow', 'hsl(224, 28%, 35%)');
         root.style.setProperty('--key-alt-active', 'hsl(224, 51%, 76%)');
 
-        root.style.setProperty('--key-equals-bg', 'hsl(6, 63%, 50%)');
-        root.style.setProperty('--key-equals-shadow', 'hsl(6, 70%, 34%)');
-        root.style.setProperty('--key-equals-active', 'hsl(6, 93%, 67%)');
-        root.style.setProperty('--equals-text-color', 'white');
-
-
         root.style.setProperty('--toggle-color', 'hsl(6, 63%, 50%)');
-
+        root.style.setProperty('--toggle-active', 'hsl(6, 93%, 67%)');
         break;
+
       case 2:
         root.style.setProperty('--body-text-color', 'hsl(60, 10%, 19%)');
         root.style.setProperty('--text-key', 'hsl(60, 10%, 19%)');
@@ -68,18 +68,20 @@ function App() {
 
         root.style.setProperty('--key-bg', 'hsl(45, 7%, 89%)');
         root.style.setProperty('--key-shadow', 'hsl(35, 11%, 61%)');
-        root.style.setProperty('--key-bg-active', 'hsl(6, 93%, 67%)');
+        root.style.setProperty('--key-bg-active', 'white');
 
         root.style.setProperty('--key-equals-bg', 'hsl(25, 98%, 40%)');
         root.style.setProperty('--key-equals-shadow', 'hsl(25, 99%, 27%)');
-        root.style.setProperty('--key-equals-active', 'hsl(224, 51%, 76%)');
+        root.style.setProperty('--key-equals-active', 'hsl(25, 100%, 61%)');
         root.style.setProperty('--equals-text-color', 'white');
 
         root.style.setProperty('--key-alt-bg', 'hsl(185, 42%, 37%)');
         root.style.setProperty('--key-alt-shadow', 'hsl(185, 58%, 25%)');
-        root.style.setProperty('--key-alt-active', 'hsl(6, 93%, 67%)');
+        root.style.setProperty('--key-alt-active', 'hsl(185, 56%, 41%)');
 
         root.style.setProperty('--toggle-color', 'hsl(25, 98%, 40%)');
+        root.style.setProperty('--toggle-active', 'hsl(25, 100%, 61%)');
+
         break;
       case 3:
         root.style.setProperty('--body-text-color', 'hsl(52, 100%, 62%)');
@@ -91,24 +93,22 @@ function App() {
 
         root.style.setProperty('--key-bg', 'hsl(281, 89%, 26%)');
         root.style.setProperty('--key-shadow', 'hsl(285, 91%, 52%)');
-        root.style.setProperty('--key-bg-active', 'hsl(6, 93%, 67%)');
+        root.style.setProperty('--key-bg-active', 'hsl(267, 54%, 44%)');
 
         root.style.setProperty('--key-equals-bg', 'hsl(176, 100%, 44%)');
         root.style.setProperty('--key-equals-shadow', 'hsl(177, 92%, 70%)');
-        root.style.setProperty('--key-equals-active', 'hsl(224, 51%, 76%)');
+        root.style.setProperty('--key-equals-active', 'hsl(177, 100%, 79%)');
         root.style.setProperty('--equals-text-color', 'hsl(198, 20%, 13%)');
 
         root.style.setProperty('--key-alt-bg', 'hsl(268, 47%, 21%)');
         root.style.setProperty('--key-alt-shadow', 'hsl(290, 70%, 36%)');
-        root.style.setProperty('--key-alt-active', 'hsl(6, 93%, 67%)');
+        root.style.setProperty('--key-alt-active', 'hsl(280, 56%, 44%)');
 
         root.style.setProperty('--toggle-color', 'hsl(176, 100%, 44%)');
         break;
     }
-
   }, [theme]);
   
-
   const CalculatorButton = ({value}) => {
     const handleClick = (e) => {
       switch(value) {

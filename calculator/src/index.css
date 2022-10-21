@@ -31,6 +31,7 @@
   --text-key: hsl(221, 14%, 31%);
   --toggle-color: hsl(6, 63%, 50%);
   --toggle-bg: hsl(223, 31%, 20%);
+
 }
 
 body {
@@ -182,4 +183,9 @@ fieldset label{
 #third_toggle:checked ~ .toggle_option_slider{
   background: var(--toggle-color);
   left: 3rem;
+}
+#first_toggle:checked ~ .toggle_option_slider:hover,
+#second_toggle:checked ~ .toggle_option_slider:hover,
+#third_toggle:checked ~ .toggle_option_slider:hover{
+  background: var(--key-equals-active);
 }
